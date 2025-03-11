@@ -19,7 +19,7 @@ pipeline {
                 }
                 stage('Instalando') {
                 steps {
-                    sh 'pip install -r app/requirements.txt'
+                    sh 'pip install -r requirements.txt'
                     }
                 }
                 stage('Test') {
@@ -58,11 +58,6 @@ pipeline {
                         sh "docker rmi $IMAGEN:$BUILD_NUMBER"
                         }
                 }
-                stage('Cambiar la version de la imagen') {
-                    steps {
-                        sh "sed -i 's|image: .*|image: ${IMAGEN}:${BUILD_NUMBER}|' docker-compose.yaml"
-                        }
-                }
             }
         }
         stage ('Despliegue') {
@@ -75,6 +70,7 @@ pipeline {
                                 ssh -o StrictHostKeyChecking=no debian@vps.raulhr.site "
                                 cd examen_icdc &&
                                 git pull &&
+                                sed -i 's|image: .*|image: ${IMAGEN}:${BUILD_NUMBER}|' docker-compose.yaml &&
                                 docker-compose down &&
                                 docker pull "$IMAGEN:$BUILD_NUMBER" &&
                                 docker-compose up -d &&
