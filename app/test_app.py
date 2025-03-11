@@ -5,7 +5,7 @@ from app import app  # Importa la app desde tu script principal
 
 def test_inicio(client):
     """Prueba la ruta de inicio y verifica el contador."""
-    contador_file = "contadorasd.txt"
+    contador_file = "contador.txt"
     
     # Eliminar el archivo de contador si existe para una prueba limpia
     if os.path.exists(contador_file):
@@ -30,7 +30,7 @@ def test_nombre_env(client, monkeypatch):
     monkeypatch.setenv("NOMBRE", "TestUser")
     response = client.get("/")
     assert response.status_code == 200
-    assert "App de: TestUser" in response.text
+    assert "Aplicacion de: TestUser" in response.text
     
 @pytest.fixture
 def client():
