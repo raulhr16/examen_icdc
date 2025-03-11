@@ -5,7 +5,7 @@ from app import app  # Importa la app desde tu script principal
 
 def test_inicio(client):
     """Prueba la ruta de inicio y verifica el contador."""
-    contador_file = "contador.txt"
+    contador_file = "contadorasd.txt"
     
     # Eliminar el archivo de contador si existe para una prueba limpia
     if os.path.exists(contador_file):
