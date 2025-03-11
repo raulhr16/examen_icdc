@@ -87,7 +87,7 @@ pipeline {
             emailext(
                 to: 'alertas.snort.raulhr@gmail.com',
                 subject: "Pipeline IC: ${currentBuild.fullDisplayName}",
-                body: "Se ha generado la imagen $IMAGEN:$BUILD_NUMBER"
+                body: "Se ha generado la imagen $IMAGEN:$BUILD_NUMBER. El estado del despliegue es ${currentBuild.result} "
             )
         }
     }
