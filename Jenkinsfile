@@ -14,7 +14,7 @@ pipeline {
             stages {
                 stage('Clonando') {
                 steps {
-                    git branch:'master',url:'https://github.com/raulhr16/examen_icdc.git'
+                    git branch:'main',url:'https://github.com/raulhr16/examen_icdc.git'
                     }
                 }
                 stage('Instalando') {
@@ -34,7 +34,7 @@ pipeline {
             stages {
                 stage('Clonando') {
                 steps {
-                    git branch:'master',url:'https://github.com/raulhr16/examen_icdc.git'
+                    git branch:'main',url:'https://github.com/raulhr16/examen_icdc.git'
                     }
                 }
                 stage('Build') {
